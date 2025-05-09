@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entertainment Event Signup</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff5722;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e64a19;
+    }
+
+    .confirmation {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>🎬 Entertainment Night</h2>
+    <form id="entertainmentForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="event">Choose Event</label>
+      <select id="event">
+        <option value="movie">Movie Night</option>
+        <option value="concert">Live Concert</option>
+        <option value="talent">Talent Show</option>
+      </select>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="confirmation" id="confirmationMessage"></div>
+  </div>
+
+  <script>
+    document.getElementById('entertainmentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const selectedEvent = document.getElementById('event').value;
+
+      const confirmationMessage = `🎉 Thank you, ${name}! You’ve signed up for the ${selectedEvent.replace(/^\w/, c => c.toUpperCase())}.`;
+      document.getElementById('confirmationMessage').textContent = confirmationMessage;
+    });
+  </script>
+
+</body>
+</html>
